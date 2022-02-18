@@ -1,0 +1,38 @@
+import pytest
+
+
+def test_str_positive():
+    test_str1 = "test123"
+    assert type(test_str1) is str
+
+
+def test_str_negative():
+    test_str2 = 123
+    try:
+        assert type(test_str2) is str
+    except AssertionError:
+        pass
+
+
+@pytest.mark.parametrize('test_str3', ['is str', "123", '12'+'str', """dasdasd"""])
+def test_str_parametrize(test_str3):
+        assert type(test_str3) is str
+
+
+
+def test_tuple_positive():
+    test_tuple1 = ('thisistuple', 123)
+    assert type(test_tuple1) is tuple
+
+
+def test_tuple_negative():
+    test_tuple2 = 'thisisnottuple'
+    try:
+        assert type(test_tuple2) is tuple
+    except AssertionError:
+        pass
+
+
+@pytest.mark.parametrize('test_tuple3', [('tuple', 123), (1, ), tuple('test!, ')])
+def test_tuple_patametrize(test_tuple3):
+        assert type(test_tuple3) is tuple
